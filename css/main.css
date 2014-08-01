@@ -505,7 +505,7 @@ html > body > main.contacts p
 {
 	float: left;
 	padding-top: 5px;
-	padding-left: 50px;
+	margin-left: 50px;
 
 	font-family: arial;
 	font-size: 18px;
@@ -527,7 +527,7 @@ html > body > main.contacts li
 
 html > body > main.contacts a
 {
-	padding-left: 50px;
+	margin-left: 50px;
 
 	font-family: arial;
 	font-size: 18px;
