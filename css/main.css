@@ -141,6 +141,12 @@ html > body > main
 	background-color: #e4e4e4;
 }
 
+html > body > main p
+{
+	font-family: arial;
+	font-size: 18px;
+}
+
 html > body > header
 {
 	width: 842px;
@@ -279,9 +285,6 @@ html > body > main.concert p
 	padding-top: 12px;
 	padding-bottom: 20px;
 	padding-left: 50px;
-
-	font-family: arial;
-	font-size: 18px;
 }
 
 html > body > main.concert table
@@ -311,45 +314,13 @@ html > body > main.albums img
 html > body > main.albums p
 {
 	padding-left: 92px;
-
-	font-family: arial;
-	font-size: 18px;
-}
-
-html > body > main.albums ul
-{
-	margin-left: -40px;
-	list-style: none;
-}
-
-html > body > main.albums > ul > li
-{
-	float: left;
-	font-family: arial;
-	font-size: 18px;
 }
 
 html > body > main.album img
 {
 	float: left;
-
 	margin-top: 46px;
 	margin-left: 50px;
-}
-
-html > body > main.album ul
-{
-	padding-top: 27px;
-
-	list-style: none;
-}
-
-html > body > main.album > ul > li
-{
-	padding-left: 200px;
-
-	font-family: arial;
-	font-size: 18px;
 }
 
 html body main.media
@@ -360,13 +331,11 @@ html body main.media
 html body main.media_p
 {
 	height: 850px;
-
 	background-color: #e4e4e4;
 }
 html body main.media_p2
 {
-padding-bottom: 10px;
-
+	padding-bottom: 10px;
 	background-color: #e4e4e4;
 }
 html > body > main.media_p2 img
@@ -409,22 +378,6 @@ html > body > main.merch p
 {
 	padding-left: 50px;
 	padding-bottom: 30px;
-
-	font-family: arial;
-	font-size: 18px;
-}
-html > body > main.merch > ul
-{
-	margin-top: -5px;
-	margin-left: -40px;
-	list-style: none;
-}
-
-html > body > main.merch > ul > li
-{
-	float: left;
-	font-family: arial;
-	font-size: 18px;
 }
 
 html > body > main.about p
@@ -432,10 +385,6 @@ html > body > main.about p
 	padding-top: 10px;
 	padding-right: 50px;
 	padding-left: 50px;
-
-	font-family: arial;
-	font-size: 18px;
-
 }
 
 html > body > main.about img
@@ -458,12 +407,10 @@ html > body > main.bio img
 html > body > main.bio p
 {
 	float: right;
-
 	width: 299px;
 	height: 159px;
 	padding-top: 50px;
 	padding-right: 50px;
-
 	font-family: arial;
 	font-size: 16px;
 }
@@ -475,29 +422,11 @@ html > body > main.contacts p
 	float: left;
 	padding-top: 5px;
 	margin-left: 50px;
-
-	font-family: arial;
-	font-size: 18px;
-}
-
-html > body > main.contacts ul
-{
-	padding-top: 15px;
-	padding-left: 50px;
-
-	list-style: none;
-}
-
-html > body > main.contacts li
-{
-	font-family: arial;
-	font-size: 18px;
 }
 
 html > body > main.contacts a
 {
 	margin-left: 50px;
-
 	font-family: arial;
 	font-size: 18px;
 	text-decoration: underline;
