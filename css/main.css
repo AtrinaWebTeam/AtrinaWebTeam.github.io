@@ -143,7 +143,7 @@ html > body > main
 
 html > body > main p
 {
-	font-family: arial;
+	font-family: arial,sans-serif;
 	font-size: 18px;
 }
 
@@ -242,28 +242,39 @@ html > body > footer
 	background-color: #e4e4e4;
 }
 
-html > body > footer > ul
-{
-	list-style: none;
+footer>nav>a{
+	background: url(../image/icons/sprites.png) no-repeat;
+	margin-top: 10px;
+	width: 24px;
+	height: 24px;
+	float: left;
+	margin-left: 14.32%;
 }
 
-html > body > footer > ul > li
-{
-	float: left;
+[href^="yo"]{
+	background-position: -96px 0;
+}
 
-	padding-left: 14.35%;
+[href^="in"]{
+	background-position: -73px 0;
+}
 
-	line-height: 50px;
+[href^="la"]{
+	background-position: -49px 0;
+}
 
-	color: black;
+[href^="tw"]{
+	background-position: -24px 0;
+}
+
+[href^="vk"]{
+	background-position: 0 0;
 }
 
 html > body > main.news h2
 {
 	float: left;
-
 	width: 420px;
-
 	font-size: 28px;
 	text-align: center;
 }
@@ -274,10 +285,8 @@ html > body > main.news p
 	padding-top: 78px;
 	padding-right: 20px;
 	padding-left: 90px;
-
-	font-family: arial;
+	font-family: arial,sans-serif;
 	font-size: 16px;
-
 }
 
 html > body > main.concert p
@@ -300,7 +309,7 @@ html > body > main.concert table
 
 html > body > main.concert > table tr td
 {
-	font-family: arial;
+	font-family: arial,sans-serif;
 	font-size: 18px;
 
 }
@@ -411,7 +420,7 @@ html > body > main.bio p
 	height: 159px;
 	padding-top: 50px;
 	padding-right: 50px;
-	font-family: arial;
+	font-family: arial,sans-serif;
 	font-size: 16px;
 }
 html > body > main.contacts{
@@ -427,7 +436,7 @@ html > body > main.contacts p
 html > body > main.contacts a
 {
 	margin-left: 50px;
-	font-family: arial;
+	font-family: arial,sans-serif;
 	font-size: 18px;
 	text-decoration: underline;
 
@@ -630,30 +639,3 @@ html > body > main.contacts a
 /* End hide from IE-mac */
 
 /*ЛайтБоксУуУуУуУууУуУуУУуУуУуУуУуУУуУуУуУуУуУууУуУууУуУуУуУуУ*/
-.you, .inst, .last, .twitter, .vk{
-	background: url(../image/icons/sprites.png) no-repeat;
-	margin-top: 10px;
-	width: 24px;
-	height: 24px;
-}
-
-.you{
-	background-position: -96px 0;
-}
-
-.inst{
-	background-position: -73px 0;
-}
-
-.last{
-	background-position: -49px 0;
-}
-
-.twitter{
-	background-position: -24px 0;
-}
-
-.vk{
-	background-position: 0 0;
-}
-
