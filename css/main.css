@@ -2,7 +2,6 @@
 a,h1,h2,time,p {
 	margin: 0;
 	padding: 0;
-
 	font-family: 'Exo 2', sans-serif;
 	font-size: 20px;
 
@@ -13,57 +12,30 @@ a,h1,h2,time,p {
 	margin-top: 18px;
 	margin-bottom: 83px;
 	margin-left: 27px;
-}
-
-.dates{
-	background-position: -3px -197px ;
 	width: 78px;
 	height: 79px;
 }
 
+.dates{
+	background-position: -3px -197px ;
+}
+
 .plane{
 	background-position: -97px -100px ;
-	width: 79px;
-	height: 78px;
 }
 
 .video{
 	background-position: 0 -98px ;
-	width: 79px;
-	height: 79px;
 }
 
 .album{
 	background-position: -96px 0;
-	width: 79px;
-	height: 79px;
 }
 
 .buy{
 	background-position: -1px 0;
-	width: 79px;
-	height: 79px;
 }
 
-.active
-{
-	float: left;
-	padding: 60px 8px 60px 8px;
-	
-	font-family: 'Exo 2', sans-serif;
-	font-size: 18px;
-
-	color: #f95252;
-}
-a.active{
-	float: left;
-	padding: 60px 4px 60px 4px;
-
-	font-family: 'Exo 2', sans-serif;
-	font-size: 18px;
-
-	color: #f95252;
-}
 .long
 {
 	min-height:727px;
@@ -84,7 +56,6 @@ a.active{
 }
 .before{
 	float: left;
-
 	margin-left: 410px;
 }
 .next{
@@ -94,9 +65,7 @@ a.active{
 }
 a {
 	text-decoration: none;
-
 	cursor: pointer;
-
 	color: #000000;
 }
 
@@ -104,7 +73,6 @@ h1
 {
 	padding-top: 37px;
 	padding-left: 50px;
-
 	font-size: 28pt;
 	line-height: 20px;
 }
@@ -113,17 +81,14 @@ h2
 {
 	padding-top: 40px;
 	padding-left: 50px;
-
 	font-size: 28px;
 }
 
 time
 {
 	float: left;
-
 	width: 60px;
 	padding-left: 20px;
-
 	font-size: 16px;
 	font-weight: bold;
 }
@@ -138,7 +103,6 @@ html
 {
 	margin: 0;
 	padding: 0;
-
 	background-color: #eaeaea;
 }
 
@@ -153,13 +117,11 @@ body
 html > body > main
 {
 	float: left;
-
 	width: 522px;
 	min-height: 546px;
 	margin-top: 36px;
 	margin-right: 30px;
 	margin-left: 30px;
-
 	background-color: #e4e4e4;
 }
 
@@ -168,45 +130,37 @@ html > body > header
 	width: 842px;
 	height: 144px;
 	margin: auto;
-
 	background-color: #e4e4e4;
 }
 
 html > body > header img
 {
 	float: left;
-
 	width: 123px;
 	height: 123px;
 	margin-top: 10px;
 	margin-left: 27px;
 }
 
-html > body > header > ul
-{
-	list-style: none;
-}
-
-html > body > header > ul > li
+html > body > header > nav > a
 {
 	float: left;
-
-	padding-right: .5%;
-	padding-left: .5%;
-
 	color: black;
-}
-
-html > body > header > ul > li > a
-{
-	float: left;
-
-	padding: 60px 4px 60px 4px;
-
+	padding: 60px 7px;
 	font-size: 18px;
 }
+html > body > header > nav > a[href = ""]
+{
+	color: #f95252;
+	cursor: default;
+}
 
-html > body > header > ul > li a:hover
+html > body > header > nav > button
+{
+	display: none;
+}
+
+html > body > header > nav > a[href$=".html"]:hover
 {
 	color: #414040;
 	background: #bab8b8;
@@ -219,7 +173,6 @@ html > body > aside
 	width: 130px;
 	min-height: 546px;
 	margin-top: 36px;
-
 	background-color: #e4e4e4;
 	border: none;
 }
@@ -745,35 +698,27 @@ html > body > main.contacts a
 .you, .inst, .last, .twitter, .vk{
 	background: url(../image/icons/sprites.png) no-repeat;
 	margin-top: 10px;
+	width: 24px;
+	height: 24px;
 }
 
 .you{
 	background-position: -96px 0;
-	width: 24px;
-	height: 24px;
 }
 
 .inst{
 	background-position: -73px 0;
-	width: 24px;
-	height: 24px;
 }
 
 .last{
 	background-position: -49px 0;
-	width: 24px;
-	height: 24px;
 }
 
 .twitter{
 	background-position: -24px 0;
-	width: 24px;
-	height: 23px;
 }
 
 .vk{
 	background-position: 0 0;
-	width: 24px;
-	height: 24px;
 }
 
