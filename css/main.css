@@ -57,11 +57,16 @@ a,h1,h2,time,p {
 .before{
 	float: left;
 	margin-left: 410px;
+	background-image: url('../image/icons/arr2.png');
+	width: 24px;
+	height: 24px;
 }
 .next{
-	float: left;
-	margin-top: -24px;
-	margin-left: 435px;
+	float: right;
+	margin-right: 60px;
+	background-image: url('../image/icons/arr.png');
+	width: 24px;
+	height: 24px;
 }
 a {
 	text-decoration: none;
@@ -88,9 +93,10 @@ time
 {
 	float: left;
 	width: 60px;
-	padding-left: 20px;
+	padding-left: 17px;
 	font-size: 16px;
 	font-weight: bold;
+	text-align: right;
 }
 
 iframe
