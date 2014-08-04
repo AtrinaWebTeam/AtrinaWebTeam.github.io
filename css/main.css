@@ -152,9 +152,10 @@ body
 #mediaTitle
 {
 	font-family: tahoma,arial,sans-serif;
-	font-size: 13px;
+	font-size: 11px;
 	margin: 12px 15px;
 	float: left;
+	font-weight: bold;
 }
 #mediaTitleDiv
 {
@@ -163,7 +164,7 @@ body
 }
 #msgbox.mediaVideo > #mediaTitleDiv > .close-link,#msgbox.mediaVideo > #mediaTitleDiv > span
 {
-	color: #ccc;
+	color: #888;
 }
 #msgbox.mediaVideo > #mediaTitleDiv > .close-link:hover
 {
