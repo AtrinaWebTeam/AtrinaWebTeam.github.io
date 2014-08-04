@@ -151,13 +151,13 @@ body
 
 #mediaTitle
 {
-	font-family: Arial,sans-serif;
 	font-size: 13px;
 	margin: 12px 15px;
 	float: left;
 }
 #mediaTitleDiv
 {
+	font-family: Arial,sans-serif;
 	height: 40px;
 	width: 100%;
 }
@@ -172,8 +172,7 @@ body
 .close-link
 {
 	float: right;
-	font-family: Arial,sans-serif;
-	font-size: 13px;
+	font-size: 11px;
 	padding: 12px 15px;
 }
 
