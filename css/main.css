@@ -4,7 +4,7 @@ a,h1,h2,time,p {
 	padding: 0;
 	font-family: 'Exo 2', sans-serif;
 	font-size: 20px;
-
+	font-weight: 900;
 }
 .dates, .plane, .video, .album, .buy{
 	background: url(../image/sprites.png) no-repeat;
@@ -151,7 +151,7 @@ body
 
 #mediaTitle
 {
-	font-family: tahoma,arial,sans-serif;
+	font-family: 'Exo 2', sans-serif;
 	font-size: 11px;
 	margin: 12px 15px;
 	float: left;
@@ -172,7 +172,8 @@ body
 }
 .close-link
 {
-	font-family: tahoma,arial,sans-serif;
+	font-family: 'Exo 2', sans-serif;
+	font-weight: 700;
 	float: right;
 	font-size: 11px;
 	padding: 12px 15px;
