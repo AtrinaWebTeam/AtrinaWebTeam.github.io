@@ -183,14 +183,19 @@ body
 {
 	background-color: #bab8b8;
 }
-
+#msgbox.mediaVideo #content-box
+{
+	background: unset;
+}
 #content-box
 {
 	text-align: center;
+	background: url(../image/loading.gif) no-repeat center;
+	min-height: 250px;
 }
 #content-box > img
 {
-
+	visibility: hidden;
 }
 
 html > body > main
@@ -406,6 +411,12 @@ html body main.media_p
 {
 	height: 850px;
 	background-color: #e4e4e4;
+	box-sizing: border-box;
+	padding: 0px 20px;
+}
+html body main.media_p > h1
+{
+	line-height: unset;
 }
 html body main.media_p2
 {
@@ -428,10 +439,7 @@ html > body > main.media_p2 img.high {
 }
 html > body > main.media_p img
 {
-	width: 180px;
-	height: 117px;
-	margin-top: 40px;
-	margin-left: 50px;
+	width: 130px;
 }
 
 html > body > main.media img
