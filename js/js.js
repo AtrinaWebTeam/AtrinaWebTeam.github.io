@@ -27,7 +27,6 @@
 		{
 			return;
 		}
-		openMedia();
 		currentPos = parseInt(photo.rel, 10);
 		if (photoPreload[currentPos]==undefined)
 		{
@@ -39,11 +38,13 @@
 		}
 		contentBox.appendChild(photoPreload[currentPos]);
 		document.getElementById('mediaTitle').innerHTML = 'Фотография '+(currentPos+1)+' из '+photoQueue.length;
+		openMedia();
 		preloadPhoto(currentPos+1);
 	}
 	function preloadPhoto(number)
 	{
 		if (number==photoQueue.length){number=0;}
+		if (number<0){number=photoQueue.length-1;}
 		if (photoQueue[number])
 		{
 			photoPreload[number] = new Image();
@@ -67,6 +68,23 @@
 		contentBox.appendChild(photoPreload[currentPos]);
 		document.getElementById('mediaTitle').innerHTML = 'Фотография '+(currentPos+1)+' из '+photoQueue.length;
 		preloadPhoto(currentPos+1);
+	}
+	function prevPhoto()
+	{
+		currentPos = (currentPos - 1);
+		if (currentPos<0){currentPos=photoQueue.length-1;}
+		if (photoPreload[currentPos]==undefined)
+		{
+			preloadPhoto(currentPos);
+		}
+		if (contentBox==undefined)
+		{
+			var contentBox = document.getElementById('content-box');
+		}
+		contentBox.innerHTML= '';
+		contentBox.appendChild(photoPreload[currentPos]);
+		document.getElementById('mediaTitle').innerHTML = 'Фотография '+(currentPos+1)+' из '+photoQueue.length;
+		preloadPhoto(currentPos-1);
 	}
 	function showVideo(src,title)
 	{

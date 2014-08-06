@@ -99,11 +99,6 @@ time
 	text-align: right;
 }
 
-iframe
-{
-
-}
-
 html
 {
 	margin: 0;
@@ -183,24 +178,55 @@ body
 {
 	background-color: #bab8b8;
 }
-#msgbox.mediaVideo #content-box
-{
-	background: unset;
-}
 #content-box
 {
 	text-align: center;
 	background: url(../image/loading.gif) no-repeat center;
 	min-height: 250px;
 }
+#msgbox.mediaVideo #content-box
+{
+	background: unset;
+}
 #content-box > img
 {
 	visibility: hidden;
 }
-
+.mediaPhoto, .photoAlbum, .videoPreview
+{
+	background: #eee;
+	float: left;
+	overflow: hidden;
+}
 .mediaPhoto
 {
+	width: 130px;
+	height: 87px;
 	margin: 12px;
+}
+.photoAlbum, .videoPreview
+{
+	width: 227px;
+	height: 150.5px;
+	margin: 2px;
+	position: relative;
+}
+.photoAlbum > div, .videoPreview > div
+{
+	position: absolute;
+	bottom: 0px;
+	height: 2em;
+	text-overflow: ellipsis;
+	height: 30px;
+	font-size: 10px;
+	font-family: tahoma;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #FFF;
+	top: 0px;
+	width: 100%;
+	margin-top: 120.5px;
+	padding: 10px 5px;
+	box-sizing: border-box;
 }
 
 html > body > main
@@ -407,7 +433,6 @@ html > body > main.album img
 
 html body main.media
 {
-	background-color: #e4e4e4;
 	padding-bottom: 30px;
 	padding-left: 30px;
 	box-sizing: border-box;
@@ -415,7 +440,6 @@ html body main.media
 html body main.media_p
 {
 	height: 850px;
-	background-color: #e4e4e4;
 	box-sizing: border-box;
 	padding: 0px 20px;
 }
@@ -426,7 +450,6 @@ html body main.media_p > h1
 html body main.media_p2
 {
 	padding-bottom: 10px;
-	background-color: #e4e4e4;
 }
 html > body > main.media_p2 img
 {
@@ -450,7 +473,6 @@ html > body > main.media_p img
 html > body > main.media img
 {
 	max-width: 227px;
-	margin: 2px;
 }
 
 html > body > main.merch img
@@ -522,173 +544,7 @@ html > body > main.fourohfour > article
 {
 	margin: 0px 30px;
 }
-/*ЛайтБоксУуУуУуУууУуУуУУуУуУуУуУуУУуУуУуУуУуУууУуУууУуУуУуУуУ*/
-#lightbox
-{
-	position: absolute;
-	left: 0;
-	width: 100%;
-	z-index: 100;
-	text-align: center;
-	line-height: 0;
-}
 
-#lightbox
-{
-	position: absolute;
-	left: 0;
-	width: 100%;
-	z-index: 100;
-	text-align: center;
-	line-height: 0;
-}
-
-#lightbox a img
-{
-	padding-top: 10px;
-	height: 20px;
-	border: none;
-}
-
-#outerImageContainer
-{
-	position: relative;
-	background-color: #fff;
-	width: 250px;
-	height: 250px;
-	margin: 0 auto;
-}
-
-#imageContainer
-{
-	padding: 10px;
-}
-
-#loading
-{
-	position: absolute;
-	top: 40%;
-	left: 0%;
-	height: 25%;
-	width: 100%;
-	text-align: center;
-	line-height: 0;
-}
-
-#hoverNav
-{
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	z-index: 10;
-}
-
-#imageContainer > #hoverNav
-{
-	left: 0;
-}
-
-#hoverNav a
-{
-	outline: none;
-}
-
-#prevLink, #nextLink
-{
-	width: 49%;
-	height: 100%;
-	background: transparent url(../images/blank.gif) no-repeat; /* Trick IE into showing hover */
-	display: block;
-}
-
-#prevLink
-{
-	left: 0;
-	float: left;
-}
-
-#nextLink
-{
-	right: 0;
-	float: right;
-}
-
-#prevLink:hover, #prevLink:visited:hover
-{
-	background: url(../images/prevlabel.gif) left 15% no-repeat;
-}
-
-#nextLink:hover, #nextLink:visited:hover
-{
-	background: url(../images/nextlabel.gif) right 15% no-repeat;
-}
-
-#imageDataContainer
-{
-	font: 20px 'Exo 2', sans-serif;
-	background-color: #fff;
-	margin: 0 auto;
-	line-height: 1.4em;
-}
-
-#imageData
-{
-	padding: 0 10px;
-	color: #666;
-}
-
-#imageData #imageDetails
-{
-	width: 70%;
-	float: left;
-	text-align: left;
-}
-
-#imageData #caption
-{
-	font-weight: bold;
-}
-
-#imageData #numberDisplay
-{
-	display: block;
-	clear: left;
-	padding-bottom: 1.0em;
-}
-
-#imageData #bottomNavClose
-{
-	width: 66px;
-	float: right;
-	padding-bottom: 0.7em;
-}
-
-
-/* Min-Width */
-.lbWidth
-{
-	/* most browsers */
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	width: 100%;
-	min-width: 790px;
-}
-
-* html .lbContent
-{
-	/* IE6 */
-	margin-left: -790px;
-	position: relative;
-}
-
-* html .lbMinWidth
-{
-	/* IE6 */
-	padding-left: 790px;
-}
 
 /* Clearfix */
 .clearfix:after
@@ -716,9 +572,6 @@ html > body > main.fourohfour > article
 	display: block;
 }
 
-/* End hide from IE-mac */
-
-/*ЛайтБоксУуУуУуУууУуУуУУуУуУуУуУуУУуУуУуУуУуУууУуУууУуУуУуУуУ*/
 @font-face {
   font-family: 'Exo 2';
   font-style: normal;
