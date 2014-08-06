@@ -424,13 +424,6 @@ html > body > main.albums p
 	padding-left: 92px;
 }
 
-html > body > main.album img
-{
-	float: left;
-	margin-top: 46px;
-	margin-left: 50px;
-}
-
 html body main.media
 {
 	padding-bottom: 30px;
@@ -439,7 +432,6 @@ html body main.media
 }
 html body main.media_p
 {
-	height: 850px;
 	box-sizing: border-box;
 	padding: 0px 20px;
 }
