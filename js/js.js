@@ -43,6 +43,7 @@
 	}
 	function preloadPhoto(number)
 	{
+		if (number==photoQueue.length){number=0;}
 		if (photoQueue[number])
 		{
 			photoPreload[number] = new Image();
