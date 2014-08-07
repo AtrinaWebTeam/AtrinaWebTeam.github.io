@@ -4,7 +4,7 @@ a,h1,h2,time,p {
 	padding: 0;
 	font-family: 'Exo 2', sans-serif;
 	font-size: 20px;
-	font-weight: 900;
+	font-weight: 800;
 }
 .dates, .plane, .video, .album, .buy{
 	background: url(../image/sprites.png) no-repeat;
@@ -438,6 +438,9 @@ html body main.media_p
 html body main.media_p > h1
 {
 	line-height: unset;
+	font-size: 20px;
+	padding: 0;
+	margin: 20px 0 10px 10px;
 }
 html body main.media_p2
 {
@@ -573,6 +576,6 @@ html > body > main.fourohfour > article
 @font-face {
   font-family: 'Exo 2';
   font-style: normal;
-  font-weight: 900;
-  src: local('Exo 2 Black'), local('Exo2-Black'), url(http://fonts.gstatic.com/s/exo2/v2/918JJi30AEJGIY8qzOsUqvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+  font-weight: 800;
+  src: local('Exo 2 Extra Bold'), local('Exo2-ExtraBold'), url(http://fonts.gstatic.com/s/exo2/v2/_45GKhlEQ4Qgx1UpUt8lufesZW2xOQ-xsNqO47m55DA.woff) format('woff');
 }

@@ -55,36 +55,42 @@
 	}
 	function nextPhoto()
 	{
-		currentPos = ((currentPos + 1)%photoQueue.length);
-		if (photoPreload[currentPos]==undefined)
+		if (currentPos!=undefined)
 		{
-			preloadPhoto(currentPos);
+			currentPos = ((currentPos + 1)%photoQueue.length);
+			if (photoPreload[currentPos]==undefined)
+			{
+				preloadPhoto(currentPos);
+			}
+			if (contentBox==undefined)
+			{
+				var contentBox = document.getElementById('content-box');
+			}
+			contentBox.innerHTML= '';
+			contentBox.appendChild(photoPreload[currentPos]);
+			document.getElementById('mediaTitle').innerHTML = 'Фотография '+(currentPos+1)+' из '+photoQueue.length;
+			preloadPhoto(currentPos+1);
 		}
-		if (contentBox==undefined)
-		{
-			var contentBox = document.getElementById('content-box');
-		}
-		contentBox.innerHTML= '';
-		contentBox.appendChild(photoPreload[currentPos]);
-		document.getElementById('mediaTitle').innerHTML = 'Фотография '+(currentPos+1)+' из '+photoQueue.length;
-		preloadPhoto(currentPos+1);
 	}
 	function prevPhoto()
 	{
-		currentPos = (currentPos - 1);
-		if (currentPos<0){currentPos=photoQueue.length-1;}
-		if (photoPreload[currentPos]==undefined)
+		if (currentPos!=undefined)
 		{
-			preloadPhoto(currentPos);
+			currentPos = (currentPos - 1);
+			if (currentPos<0){currentPos=photoQueue.length-1;}
+			if (photoPreload[currentPos]==undefined)
+			{
+				preloadPhoto(currentPos);
+			}
+			if (contentBox==undefined)
+			{
+				var contentBox = document.getElementById('content-box');
+			}
+			contentBox.innerHTML= '';
+			contentBox.appendChild(photoPreload[currentPos]);
+			document.getElementById('mediaTitle').innerHTML = 'Фотография '+(currentPos+1)+' из '+photoQueue.length;
+			preloadPhoto(currentPos-1);
 		}
-		if (contentBox==undefined)
-		{
-			var contentBox = document.getElementById('content-box');
-		}
-		contentBox.innerHTML= '';
-		contentBox.appendChild(photoPreload[currentPos]);
-		document.getElementById('mediaTitle').innerHTML = 'Фотография '+(currentPos+1)+' из '+photoQueue.length;
-		preloadPhoto(currentPos-1);
 	}
 	function showVideo(src,title)
 	{
@@ -120,6 +126,7 @@
 		overlay.setAttribute( 'class', 'show' );
 		overlay.style.overflowY = 'scroll';
 		body.style.overflow = 'hidden';
+		window.onkeydown = function(e) {if(e.keyCode==37){prevPhoto();} if(e.keyCode==39){nextPhoto();}}
 	}
 	//video 720x410 top40px lr30px bot45px
 	function closeMedia()
@@ -145,6 +152,8 @@
 		msgbox.setAttribute( 'class', '' );
 		overlay.style.overflowY = 'unset';
 		contentBox.innerHTML= '';
+		currentPos = undefined;
+		window.onkeydown = function() {}
 	}
 	var photoQueue = [];
 	var photoPreload = [];
