@@ -263,17 +263,17 @@ html > body > header img
 	margin-left: 27px;
 }
 
-html > body > header > nav > a
+html > body > header > nav > a, html > body > header > nav > span
 {
 	float: left;
-	color: black;
 	padding: 60px 7px;
 	font-size: 18px;
 }
-html > body > header > nav > a[href = ""]
+header > nav > span, header > nav > a.a
 {
 	color: #f95252;
-	cursor: default;
+	font-family: 'Exo 2', sans-serif;
+	font-weight: 800;
 }
 
 html > body > header > nav > button
