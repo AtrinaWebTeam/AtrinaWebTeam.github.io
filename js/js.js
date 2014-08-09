@@ -48,10 +48,19 @@
 		if (photoQueue[number])
 		{
 			photoPreload[number] = new Image();
-			photoPreload[number].onload = function(){photoPreload[number].style.visibility = 'visible';}
+			photoPreload[number].onload = function(){presentPhoto(this);}
 			photoPreload[number].onclick = function(){nextPhoto();}
 			photoPreload[number].src = photoQueue[number];
 		}
+	}
+	function presentPhoto(photo)
+	{
+		var msgbox = document.getElementById('msgbox');
+		if (photo.width > 700)
+		{
+			msgbox.style.width = (photo.width + 60)+'px';
+		}
+		photo.style.visibility = 'visible';
 	}
 	function nextPhoto()
 	{
