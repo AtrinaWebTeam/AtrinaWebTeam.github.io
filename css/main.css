@@ -55,18 +55,21 @@ a,h1,h2,time,p {
 	height: 550px;
 }
 .before{
-	float: left;
-	margin-left: 410px;
+	left: 410px;
 	background-image: url('../image/icons/arr2.png');
 	width: 24px;
 	height: 24px;
+	position: absolute;
+	bottom: 0px;
 }
 .next{
-	float: right;
-	margin-right: 60px;
+
+	right: 60px;
 	background-image: url('../image/icons/arr.png');
 	width: 24px;
 	height: 24px;
+	position: absolute;
+	bottom: 0px;
 }
 a {
 	text-decoration: none;
@@ -369,7 +372,12 @@ footer>nav>a{
 [href^="http://vk"]{
 	background-position: 0 0;
 }
-
+html > body > main.news
+{
+	position: relative;
+	padding-bottom: 30px;
+	box-sizing: border-box;
+}
 html > body > main.news h2
 {
 	float: left;
