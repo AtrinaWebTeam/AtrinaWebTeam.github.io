@@ -174,7 +174,9 @@ body
 	font-weight: 700;
 	float: right;
 	font-size: 11px;
-	padding: 12px 15px;
+	padding: 12px 15px 0px;
+	box-sizing: border-box;
+	height: 40px;
 }
 
 .close-link:hover
