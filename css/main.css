@@ -54,18 +54,61 @@ a,h1,h2,time,p {
 .rider{
 	height: 550px;
 }
-.before{
+.arrow
+{
+	
+}
+.arrow:after
+{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 4px solid transparent; 
+}
+.arrow.before
+{
+	width: 13px;
+	height: 8px;
+	background: #111;
+	margin-top: 8px;
+	margin-left: 10px;  
+}
+.arrow.before:after
+{
+	top: 3px;
+	right: 14px;
+	border: 9px solid transparent;
+	border-right-color: #111;
+}
+.arrow.next
+{
+	width: 13px;
+	height: 8px;
+	background: #111;
+	margin-top: 8px;
+	margin-left: 1px;  
+}
+.arrow.next:after
+{
+	top: 3px;
+	right: -8px;
+	border: 9px solid transparent;
+	border-left-color: #111;
+}
+a.before
+{
 	left: 410px;
-	background-image: url('../image/icons/arr2.png');
 	width: 24px;
 	height: 24px;
 	position: absolute;
 	bottom: 0px;
 }
-.next{
+a.next
+{
 
 	right: 60px;
-	background-image: url('../image/icons/arr.png');
 	width: 24px;
 	height: 24px;
 	position: absolute;
