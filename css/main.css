@@ -397,7 +397,10 @@ html > body > main.news p
 	font-family: arial,sans-serif;
 	font-size: 16px;
 }
-
+html > body > main.concert
+{
+	position: relative;
+}
 html > body > main.concert p
 {
 	padding-top: 12px;
