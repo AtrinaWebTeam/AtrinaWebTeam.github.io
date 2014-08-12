@@ -239,6 +239,7 @@ body
 #content-box > img
 {
 	visibility: hidden;
+	max-width: 700px;
 }
 .mediaPhoto, .photoAlbum, .videoPreview
 {

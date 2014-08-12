@@ -56,10 +56,10 @@
 	function presentPhoto(photo)
 	{
 		var msgbox = document.getElementById('msgbox');
-		if (photo.width > 700)
-		{
-			msgbox.style.width = (photo.width + 60)+'px';
-		}
+		//if (photo.width > 700)
+		//{
+		//	msgbox.style.width = (photo.width + 60)+'px';
+		//}
 		photo.style.visibility = 'visible';
 	}
 	function nextPhoto()
