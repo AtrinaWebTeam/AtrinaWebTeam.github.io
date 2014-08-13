@@ -179,7 +179,7 @@ body
 #msgbox
 {
 	background: #fff;
-	margin: 40px auto 60px;
+	margin: 10px auto 50px;
 	width: 760px;
 	padding-bottom: 45px;
 }
@@ -188,6 +188,7 @@ body
 {
 	background: #000;
 	width: 800px;
+	margin-top: 40px;
 }
 
 #mediaTitle
@@ -226,6 +227,27 @@ body
 {
 	background-color: #bab8b8;
 }
+#leftOver,#rightOver
+{
+	position: absolute;
+	top: 0px;
+	width: calc(50% - 380px);
+	min-height: 445px;
+	cursor: pointer;
+}
+#leftOver
+{
+	left: 0; 
+}
+#rightOver
+{
+	right: 0;
+}
+#cOver
+{
+	margin: 0px auto;
+	width: 760px;
+}
 #content-box
 {
 	text-align: center;
@@ -240,6 +262,7 @@ body
 {
 	visibility: hidden;
 	max-width: 700px;
+	max-height: 480px;
 }
 .mediaPhoto, .photoAlbum, .videoPreview
 {
