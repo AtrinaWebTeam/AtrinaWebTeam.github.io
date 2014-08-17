@@ -59,7 +59,6 @@
 			{
 				photoPreload[number].onload = function(){presentPhoto(this);}
 			}
-			photoPreload[number].onclick = function(){nextPhoto();}
 			photoPreload[number].src = photoQueue[number];
 		}
 	}
@@ -68,18 +67,22 @@
 		var msgbox = document.getElementById('msgbox');
 		if (photo.height > 480)
 		{
-			var mediaHeight = 480;
+			var mediaHeight = 480 + 145;
 		}
 		else if (photo.width > 700)
 		{
-			var mediaHeight = 195 + 700/photo.width*photo.height;
+			var mediaHeight = 145 + 700/photo.width*photo.height;
 		}
 		else
 		{
-			var mediaHeight = photo.height;
+			var mediaHeight = photo.height + 145;
 		}
-		document.getElementById('leftOver').style.height = mediaHeight+'px';
-		document.getElementById('rightOver').style.height = mediaHeight+'px';
+		//document.getElementById('leftOver').style.height = mediaHeight+'px';
+		//document.getElementById('rightOver').style.height = mediaHeight+'px';
+		//document.getElementById('ldoOver').style.height = (mediaHeight-50)+'px';
+		//document.getElementById('rdoOver').style.height = (mediaHeight-50)+'px';
+		//document.getElementById('cdoOver').style.height = (mediaHeight-50)+'px';		
+		//document.getElementById('overlay').style.height = mediaHeight+'px';
 		photo.style.visibility = 'visible';
 	}
 	function nextPhoto()
@@ -105,7 +108,12 @@
 			{
 				var contentBox = document.getElementById('content-box');
 			}
+			if (overlay==undefined)
+			{
+				var overlay = document.getElementById('overlay');
+			}
 			contentBox.innerHTML= '';
+			//overlay.style.width = '1317px';
 			contentBox.appendChild(photoPreload[currentPos]);
 			document.getElementById('mediaTitle').innerHTML = 'Фотография '+(currentPos+1)+' из '+photoQueue.length;	
 	}
@@ -158,6 +166,7 @@
 			var contentBox = document.getElementById('content-box');
 		}
 		var msgbox = document.getElementById('msgbox');
+		msgbox.setAttribute( 'class', 'show' );
 		overlay.setAttribute( 'class', 'show' );
 		overlay.style.overflowY = 'scroll';
 		body.style.overflow = 'hidden';
@@ -188,9 +197,76 @@
 		overlay.style.overflowY = 'unset';
 		contentBox.innerHTML= '';
 		currentPos = undefined;
+		msideState = undefined;
 		window.onkeydown = function() {}
+	}
+	function scaleActive(button)
+	{
+		button.style.transform = "scale(1.2)";
+		var id = setTimeout(function() { scaleInactive(button); }, 100);
+	}
+	function scaleInactive(button)
+	{
+		button.style.transform = "scale(1)";
+	}
+	function updateMouse(x,y)
+	{
+		if (y>screen.height*.35)
+		{
+			//document.getElementById('prevMedia').style.background = '#aaa';
+		}
+		else
+		{
+			//document.getElementById('prevMedia').style.background = '#000';
+		}
+		if (x>window.innerWidth*.5)
+		{
+			if (y>screen.height*.25)
+			{
+				if (msideState!='r')
+				{
+					document.getElementById('rMedia').setAttribute( 'class', 'a' );
+					document.getElementById('lMedia').setAttribute( 'class', '' );
+					msideState = 'r';
+				}
+			}
+			else
+			{
+				if (msideState!='c')
+				{
+					document.getElementById('rMedia').setAttribute( 'class', 'closeMedia' );
+					document.getElementById('lMedia').setAttribute( 'class', '' );
+					msideState = 'c';
+				}
+			}
+		}
+		else
+		{
+			if (msideState!='l')
+			{
+				document.getElementById('rMedia').setAttribute( 'class', '' );
+				document.getElementById('lMedia').setAttribute( 'class', 'a' );
+				msideState = 'l';
+			}
+		}
+	}
+	function overlayLeave()
+	{
+		document.getElementById('rMedia').setAttribute( 'class', '' );
+		document.getElementById('lMedia').setAttribute( 'class', '' );	
+		msideState = undefined;	
+	}
+	function overlayClick()
+	{
+		switch(msideState)
+		{
+			case 'r': {nextPhoto(); break;}
+			case 'l': {prevPhoto(); break;}
+			case 'c': {closeMedia(); break;}
+		}
 	}
 	var photoQueue = [];
 	var photoPreload = [];
 	var currentPos;
+	var msideState;
 	window.onload = function() {initMedia();}

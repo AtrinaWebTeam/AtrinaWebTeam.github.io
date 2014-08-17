@@ -163,6 +163,7 @@ body
 #overlay
 {
 	display: none;
+	cursor: pointer;
 }
 #overlay.show
 {
@@ -172,16 +173,25 @@ body
 	top: 0px;
 	right: 0px;
 	bottom: 0px;
-	z-index: 9999;
+	z-index: 100;
 	background-color: rgba(0,0,0,.7);
+	overflow-x: hidden;
+	overflow-y: auto;
 }
-
 #msgbox
 {
+	display: none;
+}
+#msgbox.show
+{
 	background: #fff;
-	margin: 10px auto 50px;
+	margin: 0 auto;
 	width: 760px;
 	padding-bottom: 45px;
+	z-index: 300;
+	position: fixed;
+	display: block;
+	top: 10px;
 }
 
 #msgbox.mediaVideo
@@ -227,26 +237,84 @@ body
 {
 	background-color: #bab8b8;
 }
-#leftOver,#rightOver
+#upOver
 {
-	position: absolute;
-	top: 0px;
-	width: calc(50% - 380px);
-	min-height: 445px;
+	top: 0;
+	height: 40%;
+	width: 100%;
 	cursor: pointer;
+	position: fixed;
 }
-#leftOver
+#rMedia,#lMedia
 {
-	left: 0; 
+	display: block;
+	position: fixed;
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+	transition: background .33s, transform .1s;
 }
-#rightOver
+#rMedia:before,#rMedia:after,#lMedia:after
 {
-	right: 0;
+	content: "";
+	border-color: #aaa;
+	display: block;
+	position: absolute;
+	width: 0;
+	height: 0;
 }
-#cOver
+#lMedia
 {
-	margin: 0px auto;
-	width: 760px;
+	top: 30px;
+	left: 30px;
+}
+#lMedia:after
+{
+	border: 13px solid transparent;
+	border-right-color: #aaa;
+	background: none;
+left: 9px;
+top: 2px;
+}
+#lMedia.a:after
+{
+	border-right-color: #fff;
+}
+#rMedia
+{
+	top: 30px;
+	right: 40px;	
+}
+#rMedia:after
+{
+	border: 13px solid transparent;
+	border-left-color: #aaa;
+	background: none;
+	left: 9px;
+top: 2px;
+}
+#rMedia.a:after
+{
+	border-left-color: #fff;
+}
+#rMedia.closeMedia:before
+{
+	height: 14%;
+	width: 90%;
+	transform: rotate(45deg);
+	top: 40%;
+	left: 2.5%;
+	background: #fff
+}
+#rMedia.closeMedia:after
+{
+	height: 14%;
+	width: 90%;
+	transform: rotate(-45deg);
+	top: 40%;
+	left: 2.5%;
+	border: none;
+	background: #fff
 }
 #content-box
 {
@@ -275,6 +343,10 @@ body
 	width: 130px;
 	height: 87px;
 	margin: 12px;
+}
+.mediaPhoto > img
+{
+	position: relative;
 }
 .photoAlbum, .videoPreview
 {
