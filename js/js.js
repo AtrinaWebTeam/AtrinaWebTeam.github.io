@@ -174,6 +174,7 @@
 		{
 			window.onkeydown = function(e) {if(e.keyCode==37){prevPhoto();} if(e.keyCode==39){nextPhoto();}}
 			overlay.onmousemove = function(e) {updateMouse(e.clientX,e.clientY);}
+			document.getElementById('rMedia').setAttribute( 'class', '' );
 			document.getElementById('lMedia').setAttribute( 'class', 'show' );
 		}
 		else
@@ -237,13 +238,13 @@
 				if ((msideState == undefined)||((msideState == 'c')&&(y - lastY>0)))
 				{
 					document.getElementById('rMedia').setAttribute( 'class', 'a' );
-					document.getElementById('lMedia').setAttribute( 'class', '' );
+					document.getElementById('lMedia').setAttribute( 'class', 'show' );
 					msideState = 'r';
 				}
 				else if ((msideState=='r')&&(y - lastY<0))
 				{
 					document.getElementById('rMedia').setAttribute( 'class', 'a closeMedia' );
-					document.getElementById('lMedia').setAttribute( 'class', '' );
+					document.getElementById('lMedia').setAttribute( 'class', 'show' );
 					msideState = 'c';
 				}
 			}
@@ -252,7 +253,7 @@
 				if (msideState!='r')
 				{
 					document.getElementById('rMedia').setAttribute( 'class', 'a' );
-					document.getElementById('lMedia').setAttribute( 'class', '' );
+					document.getElementById('lMedia').setAttribute( 'class', 'show' );
 					msideState = 'r';
 				}
 			}
