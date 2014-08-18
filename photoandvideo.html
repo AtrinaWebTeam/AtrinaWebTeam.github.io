@@ -31,17 +31,18 @@
 	<link href="css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div id="overlay" onclick="">
-	<div id="msgbox">
-		<div id="mediaTitleDiv">
-			<span id="mediaTitle"></span>
-			<a class="close-link"onclick="closeMedia();">
-				Закрыть
-			</a>
-		</div>
-
-		<div id="content-box"></div>
+<div id="overlay"onclick='overlayClick()'onmouseleave="overlayLeave();">
+	<div id="rMedia"></div>
+	<div id="lMedia"></div>
+</div>
+<div id="msgbox">
+	<div id="mediaTitleDiv">
+		<span id="mediaTitle"></span>
+		<a class="close-link"onclick="closeMedia();">
+			Закрыть
+		</a>
 	</div>
+	<div id="content-box"onclick="nextPhoto();"></div>
 </div>
 <header>
 	<a href="index.html"><img src="image/af1.png" alt="logotype"/></a>
