@@ -41,6 +41,10 @@
 			presentPhoto(photoPreload[currentPos]);
 			prepareEnvironment();
 			openMedia();
+			if (photoPreload[currentPos].naturalWidth>0)
+			{
+				resize();
+			}
 		}
 		preloadPhoto(currentPos+1);
 	}
@@ -53,30 +57,30 @@
 			photoPreload[number] = new Image();
 			if  (start)
 			{
-				photoPreload[number].onload = function(){prepareEnvironment(); presentPhoto(this); openMedia();}
+				photoPreload[number].onload = function(){presentPhoto(this,number); prepareEnvironment(); openMedia(); if (currentPos==number){resize();}}
 			}
 			else
 			{
-				photoPreload[number].onload = function(){presentPhoto(this);}
+				photoPreload[number].onload = function(){if (currentPos==number){resize();} presentPhoto(this,number);}
 			}
 			photoPreload[number].src = photoQueue[number];
 		}
 	}
-	function presentPhoto(photo)
+	function presentPhoto(photo,number)
 	{
 		var msgbox = document.getElementById('msgbox');
-		if (photo.height > 480)
-		{
-			var mediaHeight = 480 + 145;
-		}
-		else if (photo.width > 700)
-		{
-			var mediaHeight = 145 + 700/photo.width*photo.height;
-		}
-		else
-		{
-			var mediaHeight = photo.height + 145;
-		}
+		//if (photo.height > 480)
+		//{
+		//	var mediaHeight = 480 + 145;
+		//}
+		//else if (photo.width > 700)
+		//{
+		//	var mediaHeight = 145 + 700/photo.width*photo.height;
+		//}
+		//else
+		//{
+		//	var mediaHeight = photo.height + 145;
+		//}
 		//document.getElementById('leftOver').style.height = mediaHeight+'px';
 		//document.getElementById('rightOver').style.height = mediaHeight+'px';
 		//document.getElementById('ldoOver').style.height = (mediaHeight-50)+'px';
@@ -84,6 +88,31 @@
 		//document.getElementById('cdoOver').style.height = (mediaHeight-50)+'px';		
 		//document.getElementById('overlay').style.height = mediaHeight+'px';
 		photo.style.visibility = 'visible';
+	}
+	function resize()
+	{
+		if ((currentPos!=undefined)&&(photoPreload[currentPos].naturalWidth!=undefined))
+		{
+			var overlay = document.getElementById('overlay');
+			if ((overlay.clientWidth*.8-20>photoPreload[currentPos].naturalWidth)&&(overlay.clientHeight-80>photoPreload[currentPos].naturalHeight))
+			{
+				document.getElementById('msgbox').style.width=(photoPreload[currentPos].naturalWidth+20)+'px';
+				document.getElementById('msgbox').style.height=(photoPreload[currentPos].naturalHeight + 50)+'px';
+				//alert('1');
+			}
+			else if (overlay.clientHeight-80<=photoPreload[currentPos].naturalHeight)
+			{
+				document.getElementById('msgbox').style.width=(photoPreload[currentPos].naturalWidth*(overlay.clientHeight-80)/photoPreload[currentPos].naturalHeight+20)+'px';
+				document.getElementById('msgbox').style.height=(overlay.clientHeight-30)+'px';
+				//alert('2');
+			}
+			else if (overlay.clientWidth*.8-20<=photoPreload[currentPos].naturalWidth)
+			{
+				document.getElementById('msgbox').style.height=(photoPreload[currentPos].naturalHeight*(overlay.clientWidth*.8-20)/photoPreload[currentPos].naturalWidth+50)+'px';
+				document.getElementById('msgbox').style.width=(overlay.clientWidth*.8)+'px';
+				//alert('3');
+			}
+		}
 	}
 	function nextPhoto()
 	{
@@ -99,6 +128,10 @@
 				presentPhoto(photoPreload[currentPos]);
 			}
 			prepareEnvironment();
+			if (photoPreload[currentPos].width>0)
+			{
+				resize();
+			}
 			preloadPhoto(currentPos+1);
 		}
 	}
@@ -132,6 +165,10 @@
 				presentPhoto(photoPreload[currentPos]);
 			}
 			prepareEnvironment();
+			if (photoPreload[currentPos].width>0)
+			{
+				resize();
+			}
 			preloadPhoto(currentPos-1);
 		}
 	}
@@ -150,6 +187,7 @@
 		}
 		contentBox.appendChild(videoFrame);
 		document.getElementById('mediaTitle').innerHTML = title;
+		document.getElementById('msgbox').style.width = '780px';
 	}
 	function openMedia()
 	{
@@ -299,6 +337,8 @@
 	}
 	var photoQueue = [];
 	var photoPreload = [];
+	var photoWidth = [];
+	var photoHeight = [];
 	var currentPos;
 	var msideState;
 	var lastX = 0;

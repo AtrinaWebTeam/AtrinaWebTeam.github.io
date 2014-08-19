@@ -1,0 +1,175 @@
+a,h1,h2,time,p {
+	margin: 0;
+	padding: 0;
+	font-family: 'Exo 2', sans-serif;
+	font-size: 20px;
+	font-weight: 800;
+}
+.arrow
+{
+	
+}
+.arrow:after
+{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 4px solid transparent; 
+}
+.arrow.before
+{
+	width: 13px;
+	height: 8px;
+	background: #111;
+	margin-top: 8px;
+	margin-left: 10px;  
+}
+.arrow.before:after
+{
+	top: 3px;
+	right: 14px;
+	border: 9px solid transparent;
+	border-right-color: #111;
+}
+.arrow.next
+{
+	width: 13px;
+	height: 8px;
+	background: #111;
+	margin-top: 8px;
+	margin-left: 1px;  
+}
+.arrow.next:after
+{
+	top: 3px;
+	right: -8px;
+	border: 9px solid transparent;
+	border-left-color: #111;
+}
+a.before
+{
+	left: 410px;
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	bottom: 0px;
+}
+a.next
+{
+
+	right: 60px;
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	bottom: 0px;
+}
+a {
+	text-decoration: none;
+	cursor: pointer;
+	color: #000000;
+}
+
+h1
+{
+	padding-top: 37px;
+	padding-left: 50px;
+	font-size: 28pt;
+	line-height: 20px;
+}
+
+h2
+{
+	padding-top: 40px;
+	padding-left: 50px;
+	font-size: 28px;
+}
+
+time
+{
+	font-size: 13px;
+	font-weight: bold;
+	color: #aaa;
+}
+
+html
+{
+	margin: 0;
+	padding: 0;
+	background-color: #eaeaea;
+	font-size: 20px;
+}
+body
+{
+	width: unset;
+	padding: 0;
+}
+header
+{
+	width: 100%;
+	position: fixed;
+	top: 0;
+	height: 3em;
+	background-color: #e4e4e4;
+}
+header > a
+{
+	display: block;
+	float: left;
+}
+header > a > img
+{
+	width: 3em;
+	height: 3em;
+}
+header > nav
+{
+	display: block;
+	width: 3em;
+	height: 3em;
+	float: right;
+	overflow: hidden;	
+}
+header > nav > button
+{
+	float: right;
+	width: 3em;
+	height: 3em;
+	border: none;
+}
+aside
+{
+	margin-top: 3em;
+	width: 100%;
+	height: 3em;
+	background-color: #eaeaea;
+}
+aside>div
+{
+	float: left;
+	width: 50%;
+	height: 3em;
+}
+aside>div:first-child
+{
+	border-right: 1px solid #555;
+	box-sizing: border-box;
+}
+aside>div>a
+{
+	display: block;
+	height: 100%;
+	text-align: center;
+}
+main
+{
+	width: 100%;
+	background-color: #e4e4e4;
+}
+footer
+{
+	background-color: #e4e4e4;
+	height: 3em;
+	margin-top: 3em;
+}
