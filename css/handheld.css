@@ -104,6 +104,7 @@ body
 {
 	width: unset;
 	padding: 0;
+	margin: 0;
 }
 header
 {
@@ -135,12 +136,12 @@ header > nav
 	transition: width .2s .3s, height .5s, background 0s .5s;
 	position: absolute;
 	top: 0;
-	right: 0;
+	right: 4px;
 }
 header > nav.exp
 {
 	width: 9rem;
-	height: 10rem;
+	height: 17rem;
 	background: #eee;
 	box-shadow: 2px 2px 6px;
 	transition: width .2s, height .5s,box-shadow .3s .2s;
@@ -150,12 +151,14 @@ header > nav > a
 	float: right;
 	display: block;
 	text-align: left;
-	width: 75%;
-	height: 1rem;
+	width: 78%;
+	height: 2rem;
 	border-bottom: 1px solid #666;
 	box-sizing: border-box;
 	font-size: .6rem;
-	margin-right: 1.5rem;
+	margin-right: 1rem;
+	padding-top: .6rem;
+	padding-left: .5rem;
 }
 header > nav > a:last-child
 {
