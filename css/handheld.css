@@ -166,8 +166,9 @@ header > nav > a:last-child
 	float: right;
 	width: 3rem;
 	height: 3rem;
+	border-radius:0;
 	border: none;
-	background-color: rgba(0,0,0,0);
+	background: none;
 	padding: 0;
 	position: relative;
 	box-shadow:none;
