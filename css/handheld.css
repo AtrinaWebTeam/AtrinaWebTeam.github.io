@@ -170,6 +170,7 @@ header > nav > a:last-child
 	background-color: rgba(0,0,0,0);
 	padding: 0;
 	position: relative;
+	box-shadow:none;
 }
 #menu > div,#menu > div:after,#menu > div:before
 {
