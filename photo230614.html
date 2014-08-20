@@ -30,7 +30,7 @@
 </head>
 <body>
 <div id="overlay"onmousemove="updateMouse(event.clientX,event.clientY);"onclick='overlayClick()'onmouseleave="overlayLeave();">
-	<div id="rMedia"></div>
+	<div id="rMedia"onmouseenter="hoverClose();"onmouseleave="leaveClose();"></div>
 	<div id="lMedia"></div>
 </div>
 <div id="msgbox">

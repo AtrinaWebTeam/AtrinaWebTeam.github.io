@@ -175,8 +175,7 @@ body
 	bottom: 0px;
 	z-index: 100;
 	background-color: rgba(0,0,0,.7);
-	overflow-x: hidden;
-	overflow-y: auto;
+	overflow: hidden;
 }
 #msgbox
 {
@@ -293,23 +292,31 @@ top: 2px;
 	top: 30px;
 	right: 40px;	
 }
-#rMedia:after
+#rMedia.right:after
 {
 	border: 13px solid transparent;
 	border-left-color: #aaa;
 	background: none;
 	left: 9px;
-top: 2px;
+	top: 2px;
+	width: 0;
+	height: 0;
+	transform: none;
 }
-#rMedia.a:after
+#rMedia.right.a:after
 {
 	border-left-color: #fff;
+	background: none;
 }
-#rMedia.a.closeMedia:after,#rMedia.a.closeMedia:before
+#rMedia.right.a:before
+{
+	content: none;
+}
+#rMedia.a:after,#rMedia.a:before
 {
 	background: #fff
 }
-#rMedia.closeMedia:before
+#rMedia:before
 {
 	height: 14%;
 	width: 90%;
@@ -318,7 +325,7 @@ top: 2px;
 	left: 2.5%;
 	background: #aaa
 }
-#rMedia.closeMedia:after
+#rMedia:after
 {
 	height: 14%;
 	width: 90%;
