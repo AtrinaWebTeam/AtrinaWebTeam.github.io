@@ -259,7 +259,6 @@ body
 	width: 32px;
 	height: 32px;
 	cursor: pointer;
-	transition: background .33s, transform .1s;
 }
 #rMedia:before,#rMedia:after,#lMedia.show:after
 {
@@ -301,6 +300,7 @@ top: 2px;
 	top: 2px;
 	width: 0;
 	height: 0;
+	-webkit-transform: none;
 	transform: none;
 }
 #rMedia.right.a:after
@@ -320,6 +320,7 @@ top: 2px;
 {
 	height: 14%;
 	width: 90%;
+	-webkit-transform: rotate(45deg);
 	transform: rotate(45deg);
 	top: 40%;
 	left: 2.5%;
@@ -329,6 +330,7 @@ top: 2px;
 {
 	height: 14%;
 	width: 90%;
+	-webkit-transform: rotate(-45deg);
 	transform: rotate(-45deg);
 	top: 40%;
 	left: 2.5%;
@@ -339,6 +341,7 @@ top: 2px;
 {
 	text-align: center;
 	background: url(../image/loading.gif) no-repeat center;
+	min-width: 50%;
 	min-height: 250px;
 	width: 100%;
 	height: calc(100% - 40px);
@@ -349,7 +352,6 @@ top: 2px;
 }
 #content-box > img
 {
-	visibility: hidden;
 	max-width: calc(100% - 20px);
 	max-height: calc(100% - 10px);
 }
@@ -753,33 +755,44 @@ html > body > main.fourohfour > article
 .loading,.loading:before,.loading:after
 {
 	content: "";
-	width: 1px;
-	height: 1px;
+	width: 10px;
+	height: 10px;
 	border-radius: 50%;
-	background-color: #FFF;
 	z-index: 56;
 	position: absolute;
 }
 .loading
 {
-	left: 65px;
-	top: 43px;
-	transform: scale 0;
-	animation: loading 1.8s .6s infinite linear;
+	left: 60px;
+	top: 28px;
+	-webkit-animation: loading 1.8s .16s infinite ease-in-out;
+	animation: loading 1.8s .16s infinite ease-in-out;
 }
 .loading:before
 {
 	right: 20px;
-	box-shadow: 0px 0px 0px 2px #FFF;
-	animation: loading 1.8s infinite linear;
+	-webkit-animation: loading 1.8s infinite ease-in-out;
+	animation: loading 1.8s infinite ease-in-out;
 }
 .loading:after
 {
 	left: 20px;
-	box-shadow: 0px 0px 0px 7px #FFF;
-	animation: loading 1.8s 1.2s infinite linear;
+	-webkit-animation: loading 1.8s .32s infinite ease-in-out;
+	animation: loading 1.8s .32s infinite ease-in-out;
+}
+@-webkit-keyframes loading {
+  0%, 80%, 100% {
+    box-shadow: 0 10px 0 -5px #FFF;
+  }
+  40% {
+    box-shadow: 0 10px 0 0 #FFF;
+  }
 }
 @keyframes loading {
-	from, 80%, to   { box-shadow: 0px 0px 0px 2px #FFF; }
-	50% { box-shadow: 0px 0px 0px 5px #FFF; }
+  0%, 80%, 100% {
+    box-shadow: 0 10px 0 -5px #FFF;
+  }
+  40% {
+    box-shadow: 0 10px 0 0 #FFF;
+  }
 }

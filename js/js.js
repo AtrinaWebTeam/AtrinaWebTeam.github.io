@@ -51,6 +51,7 @@
 			}
 		}
 		preloadPhoto(currentPos+1);
+		preloadPhoto(currentPos-1);
 	}
 	function preloadPhoto(number,start)
 	{
@@ -61,41 +62,22 @@
 			photoPreload[number] = new Image();
 			if  (start)
 			{
-				photoPreload[number].onload = function(){presentPhoto(this,number); prepareEnvironment(); openMedia(); if (currentPos==number){resize();}}
+				photoPreload[number].onload = function(){prepareEnvironment(); openMedia(); if (currentPos==number){resize();}}
 			}
 			else
 			{
-				photoPreload[number].onload = function(){if (currentPos==number){resize();} presentPhoto(this,number);}
+				photoPreload[number].onload = function(){if (currentPos==number){resize();}}
 			}
 			photoPreload[number].src = photoQueue[number];
+			if (currentPos==number)
+			{
+				prepareEnvironment();
+			}
 		}
-	}
-	function presentPhoto(photo,number)
-	{
-		var msgbox = document.getElementById('msgbox');
-		//if (photo.height > 480)
-		//{
-		//	var mediaHeight = 480 + 145;
-		//}
-		//else if (photo.width > 700)
-		//{
-		//	var mediaHeight = 145 + 700/photo.width*photo.height;
-		//}
-		//else
-		//{
-		//	var mediaHeight = photo.height + 145;
-		//}
-		//document.getElementById('leftOver').style.height = mediaHeight+'px';
-		//document.getElementById('rightOver').style.height = mediaHeight+'px';
-		//document.getElementById('ldoOver').style.height = (mediaHeight-50)+'px';
-		//document.getElementById('rdoOver').style.height = (mediaHeight-50)+'px';
-		//document.getElementById('cdoOver').style.height = (mediaHeight-50)+'px';		
-		//document.getElementById('overlay').style.height = mediaHeight+'px';
-		photo.style.visibility = 'visible';
 	}
 	function resize()
 	{
-		if ((currentPos!=undefined)&&(photoPreload[currentPos].naturalWidth!=undefined))
+		if ((currentPos!=undefined)&&(photoPreload[currentPos].naturalWidth>0))
 		{
 			var overlay = document.getElementById('overlay');
 			if ((overlay.clientWidth*.8-20>photoPreload[currentPos].naturalWidth)&&(overlay.clientHeight-80>photoPreload[currentPos].naturalHeight))
@@ -129,7 +111,7 @@
 			}
 			else
 			{
-				presentPhoto(photoPreload[currentPos]);
+
 			}
 			prepareEnvironment();
 			if (photoPreload[currentPos].width>0)
@@ -145,12 +127,7 @@
 			{
 				var contentBox = document.getElementById('content-box');
 			}
-			if (overlay==undefined)
-			{
-				var overlay = document.getElementById('overlay');
-			}
 			contentBox.innerHTML= '';
-			//overlay.style.width = '1317px';
 			contentBox.appendChild(photoPreload[currentPos]);
 			document.getElementById('mediaTitle').innerHTML = 'Фотография '+(currentPos+1)+' из '+photoQueue.length;	
 	}
@@ -166,7 +143,7 @@
 			}
 			else
 			{
-				presentPhoto(photoPreload[currentPos]);
+
 			}
 			prepareEnvironment();
 			if (photoPreload[currentPos].width>0)
