@@ -358,6 +358,7 @@ top: 2px;
 	background: #eee;
 	float: left;
 	overflow: hidden;
+	position: relative;
 }
 .mediaPhoto
 {
@@ -747,4 +748,38 @@ html > body > main.fourohfour > article
   font-style: normal;
   font-weight: 700;
   src: local('Exo 2 Bold'), local('Exo2-Bold'), url(http://fonts.gstatic.com/s/exo2/v2/_yeyO5FlfE2FZh25hTeRLvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+}
+
+.loading,.loading:before,.loading:after
+{
+	content: "";
+	width: 1px;
+	height: 1px;
+	border-radius: 50%;
+	background-color: #FFF;
+	z-index: 56;
+	position: absolute;
+}
+.loading
+{
+	left: 65px;
+	top: 43px;
+	transform: scale 0;
+	animation: loading 1.8s .6s infinite linear;
+}
+.loading:before
+{
+	right: 20px;
+	box-shadow: 0px 0px 0px 2px #FFF;
+	animation: loading 1.8s infinite linear;
+}
+.loading:after
+{
+	left: 20px;
+	box-shadow: 0px 0px 0px 7px #FFF;
+	animation: loading 1.8s 1.2s infinite linear;
+}
+@keyframes loading {
+	from, 80%, to   { box-shadow: 0px 0px 0px 2px #FFF; }
+	50% { box-shadow: 0px 0px 0px 5px #FFF; }
 }

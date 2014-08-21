@@ -33,6 +33,9 @@
 			return;
 		}
 		currentPos = parseInt(photo.rel, 10);
+		var l = document.createElement( 'div' );
+		l.setAttribute('class', 'loading')
+		photo.appendChild(l);
 		if (photoPreload[currentPos]==undefined)
 		{
 			preloadPhoto(currentPos,true);
@@ -192,6 +195,15 @@
 	}
 	function openMedia()
 	{
+		if (document.getElementsByClassName('loading').length>0)
+		{
+			end = document.getElementsByClassName('loading').length;
+			for (i = 0; i < end; i++)
+			{
+				var l = document.getElementsByClassName('loading')[0]; 
+				l.parentNode.removeChild(l);
+			}
+		}
 		if (overlay==undefined)
 		{
 			var overlay = document.getElementById('overlay');

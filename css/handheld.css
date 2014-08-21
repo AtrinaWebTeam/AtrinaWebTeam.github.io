@@ -245,3 +245,59 @@ footer
 	background-color: #e4e4e4;
 	height: 3em;
 }
+main.concert-test>div#cal
+{
+	background-color: #efefef;
+	width: 100%;
+	text-align: center;
+}
+main.concert-test h1
+{
+	display: none;
+}
+main.concert-test .row
+{
+	height: 3em;
+	width: 100%;
+	font-size: 1.3rem;
+}
+main.concert-test .row>div
+{
+	width: 14.285%;
+	height: 3em;
+	text-align: center;
+	position: relative;
+	float: left;
+	padding-top: 1em;
+	box-sizing: border-box;
+}
+main.concert-test .row>div:nth-child(n+6)
+{
+	background-color: #eaeaea;
+}
+main.concert-test .row>div[title]:before
+{
+	content: "";
+	width: 50%;
+	height: 50%;
+	background-color: #f95252;
+	cursor: pointer;
+}
+#tTitle
+{
+	height: 4em;
+	width: 100%;
+	background-color: #aaa;
+}
+#tTitle>div
+{
+	width: 60%;
+	float: left;
+	height: 3em;
+	padding-top: 1em;
+	box-sizing: border-box;
+}
+#tTitle>div:first-child,#tTitle>div:last-child
+{
+	width: 20%
+}
