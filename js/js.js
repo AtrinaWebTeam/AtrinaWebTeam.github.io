@@ -23,26 +23,41 @@
 			{
 				preloadPhoto(0);
 				window.onresize = function() {if (currentPos!=undefined){resize();}}
+				var h = getHash();
+				if (h!=undefined)
+				{
+					if ((h.split('&')[0]=='photo')&&(parseInt(h.split('&')[1],10)>=0)&&(parseInt(h.split('&')[1],10)<photoQueue.length))
+					{
+						showPhoto(undefined,parseInt(h.split('&')[1],10));
+					}
+				}
 			}
 		}
 	}
-	function showPhoto(photo)
+	function showPhoto(photo,number)
 	{
 		if (photoQueue==undefined)
 		{
 			return;
 		}
-		if (currentPos!=undefined)
+		if (photo!=undefined)
 		{
-			photoPreload[currentPos].onload = function(currentPos){if (currentPos==arguments[0]){resize();}}
-			var l = document.getElementById('qLoadAnim'); 
-			l.parentNode.removeChild(l);
+			currentPos = parseInt(photo.rel, 10);
+			var l = document.createElement( 'div' );
+			l.setAttribute('class', 'loading')
+			l.setAttribute('id', 'qLoadAnim')
+			photo.appendChild(l);
+				if (currentPos!=undefined)
+				{
+					photoPreload[currentPos].onload = function(currentPos){if (currentPos==arguments[0]){resize();}}
+					var l = document.getElementById('qLoadAnim'); 
+					l.parentNode.removeChild(l);
+				}
 		}
-		currentPos = parseInt(photo.rel, 10);
-		var l = document.createElement( 'div' );
-		l.setAttribute('class', 'loading')
-		l.setAttribute('id', 'qLoadAnim')
-		photo.appendChild(l);
+		else
+		{
+			currentPos = number;
+		}
 		if (photoPreload[currentPos]==undefined)
 		{
 			preloadPhoto(currentPos,true);
@@ -349,6 +364,16 @@
 	function leaveClose()
 	{
 		mOnClose = false;
+	}
+	function getHash() 
+	{
+    	var h = window.location.hash.substring(1);
+    	//switch (h) 
+    	//{
+    	//    case 'photo':
+    	//    case 'video':
+		//}
+		return h;
 	}
 	var photoQueue = [];
 	var photoPreload = [];
