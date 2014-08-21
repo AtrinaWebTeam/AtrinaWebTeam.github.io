@@ -32,9 +32,16 @@
 		{
 			return;
 		}
+		if (currentPos!=undefined)
+		{
+			photoPreload[currentPos].onload = function(currentPos){if (currentPos==arguments[0]){resize();}}
+			var l = document.getElementById('qLoadAnim'); 
+			l.parentNode.removeChild(l);
+		}
 		currentPos = parseInt(photo.rel, 10);
 		var l = document.createElement( 'div' );
 		l.setAttribute('class', 'loading')
+		l.setAttribute('id', 'qLoadAnim')
 		photo.appendChild(l);
 		if (photoPreload[currentPos]==undefined)
 		{
@@ -42,7 +49,6 @@
 		}
 		else
 		{
-			presentPhoto(photoPreload[currentPos]);
 			prepareEnvironment();
 			openMedia();
 			if (photoPreload[currentPos].naturalWidth>0)
@@ -172,14 +178,10 @@
 	}
 	function openMedia()
 	{
-		if (document.getElementsByClassName('loading').length>0)
+		if (document.getElementById('qLoadAnim')!=undefined)
 		{
-			end = document.getElementsByClassName('loading').length;
-			for (i = 0; i < end; i++)
-			{
-				var l = document.getElementsByClassName('loading')[0]; 
-				l.parentNode.removeChild(l);
-			}
+			var l = document.getElementById('qLoadAnim'); 
+			l.parentNode.removeChild(l);
 		}
 		if (overlay==undefined)
 		{

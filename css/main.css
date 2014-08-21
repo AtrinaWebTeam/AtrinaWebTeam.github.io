@@ -340,7 +340,6 @@ top: 2px;
 #content-box
 {
 	text-align: center;
-	background: url(../image/loading.gif) no-repeat center;
 	min-width: 50%;
 	min-height: 250px;
 	width: 100%;
@@ -763,8 +762,8 @@ html > body > main.fourohfour > article
 }
 .loading
 {
-	left: 60px;
-	top: 28px;
+	left: calc(50% - 5px);
+	top: calc(50% - 12.5px);
 	-webkit-animation: loading 1.8s .16s infinite ease-in-out;
 	animation: loading 1.8s .16s infinite ease-in-out;
 }
@@ -780,6 +779,22 @@ html > body > main.fourohfour > article
 	-webkit-animation: loading 1.8s .32s infinite ease-in-out;
 	animation: loading 1.8s .32s infinite ease-in-out;
 }
+#content-box .loading
+{
+	z-index: 300;
+	-webkit-animation: loading1 1.8s .16s infinite ease-in-out;
+	animation: loading1 1.8s .16s infinite ease-in-out;
+}
+#content-box .loading:before
+{
+	-webkit-animation: loading1 1.8s infinite ease-in-out;
+	animation: loading1 1.8s infinite ease-in-out;
+}
+#content-box .loading:after
+{
+	-webkit-animation: loading1 1.8s .32s infinite ease-in-out;
+	animation: loading1 1.8s .32s infinite ease-in-out;
+}
 @-webkit-keyframes loading {
   0%, 80%, 100% {
     box-shadow: 0 10px 0 -5px #FFF;
@@ -794,5 +809,21 @@ html > body > main.fourohfour > article
   }
   40% {
     box-shadow: 0 10px 0 0 #FFF;
+  }
+}
+@-webkit-keyframes loading1 {
+  0%, 80%, 100% {
+    box-shadow: 0 10px 0 -5px #aaa;
+  }
+  40% {
+    box-shadow: 0 10px 0 0 #aaa;
+  }
+}
+@keyframes loading1 {
+  0%, 80%, 100% {
+    box-shadow: 0 10px 0 -5px #aaa;
+  }
+  40% {
+    box-shadow: 0 10px 0 0 #aaa;
   }
 }
