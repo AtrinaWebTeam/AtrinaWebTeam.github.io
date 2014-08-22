@@ -154,7 +154,8 @@
 			}
 			contentBox.innerHTML= '';
 			contentBox.appendChild(photoPreload[currentPos]);
-			document.getElementById('mediaTitle').innerHTML = 'Фотография '+(currentPos+1)+' из '+photoQueue.length;	
+			document.getElementById('mediaTitle').innerHTML = 'Фотография '+(currentPos+1)+' из '+photoQueue.length;
+			window.location.hash = 'photo&'+currentPos;
 	}
 	function prevPhoto()
 	{
@@ -266,6 +267,7 @@
 		{
 			overlay.onmouseenter = undefined;
 		}
+		window.location.hash = '';
 		msideState = undefined;
 		window.onkeydown = function() {}
 	}
@@ -379,6 +381,45 @@
 		//}
 		return h;
 	}
+	function hashReact()
+	{
+		var h = getHash();
+		var hashCat = h.split('&')[0];
+		var hashNum = parseInt(h.split('&')[1],10);
+		if ((h == '')||(h ==undefined))
+		{
+			closeMedia();
+			return;
+		}
+		if (currentPos!=undefined)
+		{
+			if (currentPos!=hashNum)
+			{
+				if ((hashCat=='photo')&&(hashNum>=0)&&(hashNum<photoQueue.length))
+				{
+					if (currentPos!=undefined && photoQueue.length > 1)
+					{
+						currentPos = hashNum;
+						if (photoPreload[currentPos]==undefined)
+						{
+							preloadPhoto(currentPos);
+						}
+						prepareEnvironment();
+						if (photoPreload[currentPos].width>0)
+						{
+							resize();
+						}
+						preloadPhoto(currentPos+1);
+					}
+				}
+			}
+
+		}
+		else
+		{
+			showPhoto(undefined,hashNum);
+		}
+	}
 	var photoQueue = [];
 	var photoPreload = [];
 	var photoWidth = [];
@@ -389,3 +430,4 @@
 	var lastY = 0;
 	var mOnClose;
 	window.onload = function() {initMedia();}
+	window.onhashchange = function() {hashReact();}
