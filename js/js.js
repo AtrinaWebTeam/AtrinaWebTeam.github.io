@@ -42,17 +42,17 @@
 		}
 		if (photo!=undefined)
 		{
+			if ((currentPos!=undefined)&&(document.getElementById('qLoadAnim')!=undefined))
+			{
+				photoPreload[currentPos].onload = function(currentPos){if (currentPos==arguments[0]){resize();}}
+				var l = document.getElementById('qLoadAnim'); 
+				l.parentNode.removeChild(l);
+			}
 			currentPos = parseInt(photo.rel, 10);
 			var l = document.createElement( 'div' );
 			l.setAttribute('class', 'loading')
 			l.setAttribute('id', 'qLoadAnim')
 			photo.appendChild(l);
-				if (currentPos!=undefined)
-				{
-					photoPreload[currentPos].onload = function(currentPos){if (currentPos==arguments[0]){resize();}}
-					var l = document.getElementById('qLoadAnim'); 
-					l.parentNode.removeChild(l);
-				}
 		}
 		else
 		{
