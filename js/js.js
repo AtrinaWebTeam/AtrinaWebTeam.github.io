@@ -101,19 +101,23 @@
 		if ((currentPos!=undefined)&&(photoPreload[currentPos].naturalWidth>0))
 		{
 			var overlay = document.getElementById('overlay');
-			if ((overlay.clientWidth*.8-20>photoPreload[currentPos].naturalWidth)&&(overlay.clientHeight-80>photoPreload[currentPos].naturalHeight))
+			var pmaxWidth = overlay.clientWidth*.8-20;
+			var pmaxHeight = overlay.clientHeight-80;
+			var pWidth = photoPreload[currentPos].naturalWidth;
+			var pHeight = photoPreload[currentPos].naturalHeight;
+			if ((pmaxWidth>pWidth)&&(pmaxHeight>pHeight))
 			{
 				document.getElementById('msgbox').style.width=(photoPreload[currentPos].naturalWidth+20)+'px';
 				document.getElementById('msgbox').style.height=(photoPreload[currentPos].naturalHeight + 50)+'px';
 				//alert('1');
 			}
-			else if (overlay.clientHeight-80<=photoPreload[currentPos].naturalHeight)
+			else if ((pHeight/pmaxHeight)>=(pWidth/pmaxWidth))
 			{
 				document.getElementById('msgbox').style.width=(photoPreload[currentPos].naturalWidth*(overlay.clientHeight-80)/photoPreload[currentPos].naturalHeight+20)+'px';
 				document.getElementById('msgbox').style.height=(overlay.clientHeight-30)+'px';
 				//alert('2');
 			}
-			else if (overlay.clientWidth*.8-20<=photoPreload[currentPos].naturalWidth)
+			else
 			{
 				document.getElementById('msgbox').style.height=(photoPreload[currentPos].naturalHeight*(overlay.clientWidth*.8-20)/photoPreload[currentPos].naturalWidth+50)+'px';
 				document.getElementById('msgbox').style.width=(overlay.clientWidth*.8)+'px';
