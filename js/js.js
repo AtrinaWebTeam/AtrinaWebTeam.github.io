@@ -6,7 +6,15 @@
 			var relAttribute = String(anchor.getAttribute('rel'));
 			if (anchor.getAttribute('href') && (relAttribute.toLowerCase().match('mediavideo')))
 			{
-				var mediaSrc = anchor.href.split('watch?v=',2)[0]+'/embed/'+anchor.href.split('watch?v=',2)[1];
+				if (anchor.href.indexOf('vk.com')!== -1)
+				{
+					var a = anchor.href.split('-')[1];
+					var mediaSrc = anchor.href.split('-')[0]+'_ext.php?oid=-'+a.split('_')[0]+'&id='+a.split('_')[1]+'&hash='+anchor.getAttribute('hash');
+				}
+				else if (anchor.href.indexOf('youtube.com')!== -1)
+				{
+					var mediaSrc = anchor.href.split('watch?v=',2)[0]+'/embed/'+anchor.href.split('watch?v=',2)[1]+'?showinfo=0';
+				}
 				var mediaTitle = anchor.title;
 				anchor.onclick = function () {showVideo(mediaSrc,mediaTitle);return false;}
 				anchor.removeAttribute('href');
@@ -187,7 +195,7 @@
 		videoFrame.frameBorder="0";
 		videoFrame.width = 720;
 		videoFrame.height = 410;
-		videoFrame.src = src+'?showinfo=0';
+		videoFrame.src = src;
 		if (contentBox==undefined)
 		{
 			var contentBox = document.getElementById('content-box');
@@ -267,7 +275,8 @@
 		{
 			overlay.onmouseenter = undefined;
 		}
-		window.location.hash = '';
+		//window.location.hash = '';
+		window.location.href = window.location.href.split('#')[0];
 		msideState = undefined;
 		window.onkeydown = function() {}
 	}
